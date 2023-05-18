@@ -4,7 +4,7 @@ const { auth } = require("../Middlewares/auth");
 
 const { UserService } = require("../../services/user");
 
-const { UserRepository } = require("../../database/Repository/users");
+const { UserRepository } = require("../../database/Repository/user");
 
 const userRepo = new UserRepository();
 
@@ -24,7 +24,7 @@ router.post("/signup", async (req, res) => {
       });
       return res.status(200).json(data);
     }
-    return res.status(200).json(data);
+    return res.status(200).json(req.body);
   } catch (e) {
     console.log("Error while handling signup request:", e);
     return res.status(500).json({ success: false, message: "server-error" });
@@ -109,3 +109,5 @@ router.get("/clear-cookies", async (req, res) => {
 router.get("/protected", auth, async (req, res) => {
   res.status(200).json({ message: "secret message" });
 });
+
+module.exports = router;

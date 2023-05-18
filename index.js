@@ -7,10 +7,10 @@ const cors = require("cors");
 const { PORT } = require("./config/index");
 const { connectDB } = require("./config/db");
 const cookieParser = require("cookie-parser");
-
+const bodyParser = require("body-parser");
 (async () => {
   // code goes here
-  console.log("calling connect db")
+  console.log("calling connect db");
   await connectDB();
 })();
 
@@ -34,14 +34,15 @@ app.use(
 );
 app.use(cookieParser());
 
-// const userRoutes = require("./API/routes/users");
+const userRoutes = require("./API/Routes/user");
 
 app.use("/", (req, res, next) => {
   console.log("Request:", req.method, req.path);
+  // if (req.method === "POST") console.log(req.body);
   next();
 });
 
-// app.use("/user", userRoutes);
+app.use("/user", userRoutes);
 
 app.get("/", (req, res) => {
   res.send("<h1>BIG-f</h1>");
