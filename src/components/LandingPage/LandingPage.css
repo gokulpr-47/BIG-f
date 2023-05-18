@@ -1,0 +1,165 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.landingpage {
+    height: 100vh;
+    width: 100vw;
+    background-color: #FDE3A0;
+    /* display: flex; */
+}
+
+.lpheader {
+    display: flex;
+    justify-content: flex-end;
+
+    align-items: center;
+    position: relative;
+}
+
+.lplogo {
+    padding-top: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.lp3cdiv {
+    padding-top: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.oneyellow {
+    padding-top: 50px;
+    padding-right: 120px;
+}
+
+.lpdowndiv {
+    display: flex;
+    justify-content: space-around;
+}
+
+.orangediv {
+    /* height: 943px; */
+    width: 377px;
+    border-radius: 14px;
+    border: 2px solid black;
+    background-color: #FDB868;
+    display: flex;
+    flex-direction: column;
+    padding-left: 30px;
+    padding-bottom: 67px;
+    position: absolute;
+top: 82px;
+left: 32px;
+}
+
+.divelem3 {
+    display: flex;
+    padding-top: 120px;
+}
+.yellowc{
+    padding-left: 20px;
+}
+.elem2{
+    padding-left: 25px;
+}
+.line{
+    padding-left: 72px;
+}
+.lpdownright {
+    /* background-color: red; */
+}
+.lpbtn{
+    display: flex;
+    justify-content: baseline;
+}
+.heading h1{
+    /* text-align: center; */
+    font-weight: 900;
+    font-size: 4rem;
+    padding-left: 75px;
+    padding-top:20px ;
+}
+strong{
+    font-size: 7rem;
+}
+.abtsusimg{
+    /* align-content: center; */
+    padding-left: 68px;
+}
+.allcontainer{
+    display: flex;
+    
+}
+.butonbigger{
+    margin-top: 68px;
+    padding: 2em 0.8em;
+}
+.imgss{
+    display: flex;
+    /* margin-left: 204px; */
+    position: absolute;
+    flex-direction: column;
+    top: 132px;
+    transform: translate(-25px,0);
+    
+}
+.img1{
+    width: 76%;
+}
+.img2{
+    width: 76%;
+    position: absolute;
+    top: 0;
+    left: 60px;
+}
+.img3{
+    width: 76%;
+    position: absolute;
+    top: 0;
+    left: 120px;
+}
+.img4{
+    width: 76%;
+    position: absolute;
+    top: 0;
+    left: 180px;
+}
+.grid{
+    mix-blend-mode: exclusion;
+    /* overflow: hidden; */
+    position: relative;
+    top: 4px;
+    left: -10px;
+    /* width: 540px;
+    height: 990px; */
+    /* width: 602px;
+    height: 624px; */
+    width: 557px;
+    height: 490px;
+}
+.complex{
+    display: flex;
+    top: 90px;
+    width: 557px;
+    height: 490px;
+    position: relative;
+    left: 20px;
+    
+    /* position: relative; */
+}
+.smollline{
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+.button.big-button{ 
+ padding: 2em 0.8em;
+border: 2px solid black;
+}
+
+
