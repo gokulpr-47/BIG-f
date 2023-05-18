@@ -1,11 +1,20 @@
 import React from 'react'
 import './AboutUs.css'
+import Fade from 'react-reveal/Fade';
+import Slide from 'react-reveal/Slide';
 function AboutUs() {
   return (
     <div className='abtcontainer'>
       <div className="descriptionabt">
-        <div className="imageabt">
+
+      <Fade left>
+      <div className="imageabt">
         </div>
+        </Fade>
+        
+
+        <Slide bottom>
+          
         <div className="textabt">
           <div className="abtfirst">
             About BIG-f
@@ -16,6 +25,9 @@ function AboutUs() {
             </p>
           </div>
         </div>
+        </Slide>
+
+       
       </div>
 
     </div>
