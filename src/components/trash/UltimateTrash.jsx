@@ -1,6 +1,7 @@
-import React from 'react'
+import {useState} from 'react'
 import axios from "axios"
-export const trash = () => {
+
+const UltimateTrash = () => {
     const [text, setText] = useState();
     const handleChange = (e) => {
         setText(e.target.value);
@@ -17,6 +18,9 @@ export const trash = () => {
         name="textValue"
         onChange={handleChange}
       />
+      <button>Submit</button>
     </div>
   )
 }
+
+export default UltimateTrash
