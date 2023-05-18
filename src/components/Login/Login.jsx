@@ -1,9 +1,48 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import "./Login.css";
 import { NavLink } from "react-router-dom";
+import useAuth from "../../Hooks/useAuth";
+import axios from "../../API/axios";
+import { useNavigate} from "react-router-dom"
+
 function Login() {
+  const {setAuth} = useAuth();
+  // console.log("auth:", auth)
+  const navigate = useNavigate();
+  // const location = useLocation();
+  // const from = location.state?.from?.pathname || "/home";
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+
+  const handleSubmit = (e) =>{
+    e.preventDefault();
+    if(username&&password){
+      console.log("lalalalala")
+
+      axios.post("user/signin", {
+        authText:username, password
+      }, {
+        withCredentials: true
+      }).then(res=>{
+        if(res.data.success){
+            console.log("successsss", res.data)
+            setAuth({uid: res.data.user._id, role: res.data.user.role, accessToken: res.data.accessToken})
+            setPassword("");
+            setUsername("");
+            if(res.data.user.role === "admin"){
+                console.log("ewwewew")
+                navigate("/admin-panel")
+            } else if(res.data.user.role === "user"){
+                navigate("/home")
+            }
+        }else {
+          console.log("failure")
+        }
+    })
+    }
+  }
 
   return (
     <div className="login">
@@ -50,6 +89,7 @@ function Login() {
                 </div>
                 <div className="submit">
                   <input
+                  onClick={handleSubmit}
                     type="image"
                     name="submit"
                     src="\images\loginlogo.svg"
