@@ -1,6 +1,9 @@
-import useState from "react";
+import { useEffect, useState } from "react";
 import "./SignUp.css";
+import useAuth from "../../Hooks/useAuth";
+import {useNavigate} from "react-router-dom"
 import { NavLink } from "react-router-dom";
+import axios from "../../API/axios"
 
 export default function SignUp() {
   const [firstName, setFirstName] = useState("");
@@ -14,10 +17,30 @@ export default function SignUp() {
   const [college, setCollege] = useState("");
 
 
+  const {auth} = useAuth();
+  const navigate = useNavigate()
+
+  useEffect(()=>{
+    if(auth?.uid){
+        navigate(-1)
+    }else{
+        console.log("did not navigate back")
+    }
+  }, [])
+
   const handleSubmit = (e) =>{
     e.preventDefault();
     if(firstName && lastName && username && password && confirmPassword && sem && grad && branch && college){
       console.log("hahaha");
+      axios.post("http://localhost:4000/user/signup", {
+        firstName, lastName, username, password, confirmPassword ,sem,grad, branch, college
+        }).then(res=>{
+            console.log("res.data:", res.data)
+            if(res.data.success){
+                console.log("success");
+                // setResponseMessage("success")
+            }else console.log("failure")
+        })
     }
   }
 
