@@ -1,0 +1,57 @@
+.abtcontainer{
+    background-color: #FDE3A0;
+    width: 100vw;
+    height: 100vh;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.descriptionabt{
+    padding-top: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 , 18%;
+}
+.imageabt{
+    height: 350px;
+    width: 410px;
+    border:2px solid black;
+    background-image: url('/public/images/logo.svg');
+    background-position:center center;
+    border-radius: 17px;
+}
+.textabt{
+    max-width: 500px;
+    padding: 20px;
+}
+.textabt p{
+    color: black;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 26px;
+}
+.abtfirst{
+    color: black;
+    font-size: 17px;
+    font-weight: 700;   
+    margin-block-end: 10px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+.abtsecond{
+    color: black;
+    line-height: 35px;
+    font-size: 25px;
+    font-weight: 700;
+    margin-block-end: 20px;
+    margin-bottom: 20px;
+    
+}
+.abtsecond span{
+    color: green;
+}
