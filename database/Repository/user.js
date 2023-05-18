@@ -1,4 +1,4 @@
-const userModel = require("../Models/users");
+const userModel = require("../Models/user");
 const refreshTokenModel = require("../Models/refreshToken");
 
 class UserRepository {

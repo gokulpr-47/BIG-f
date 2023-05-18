@@ -1,18 +1,18 @@
-import { Schema, model } from "mongoose";
+const { Schema, model } = require("mongoose")
 
 
 const ResourceSchema = new Schema({
     author: {
         type: String,
-        required: true,
+        // required: true,
     },
     inputNotes: {
         types: String,
-        required: true
+        // required: true
     },
     topic: {
         type:String,
-        required: true,
+        // required: true,
     },
     curatedNotes: {
         type:String,

@@ -34,7 +34,8 @@ app.use(
 );
 app.use(cookieParser());
 
-// const userRoutes = require("./API/routes/users");
+// const userRoutes = require("./API/Routes/user");
+const resourcesRoutes = require("./API/Routes/resources");
 
 app.use("/", (req, res, next) => {
   console.log("Request:", req.method, req.path);
@@ -42,6 +43,7 @@ app.use("/", (req, res, next) => {
 });
 
 // app.use("/user", userRoutes);
+app.use("/resource", resourcesRoutes)
 
 app.get("/", (req, res) => {
   res.send("<h1>BIG-f</h1>");

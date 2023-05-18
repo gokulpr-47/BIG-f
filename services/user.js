@@ -3,7 +3,7 @@ const { sign, verify } = require("jsonwebtoken");
 const {
   ACCESS_TOKEN_SECRET,
   REFRESH_TOKEN_SECRET,
-} = require("../config/EnvVars");
+} = require("../config/index.js");
 
 class UserService {
   userRepo;
