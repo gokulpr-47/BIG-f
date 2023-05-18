@@ -1,5 +1,5 @@
-const userModel = require("../Models/user");
-const refreshTokenModel = require("../Models/refreshToken");
+const userModel = require("../models/user");
+const refreshTokenModel = require("../models/refreshToken");
 
 class UserRepository {
   async CreateUser({ email, password, username }) {

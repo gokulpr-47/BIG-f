@@ -13,17 +13,17 @@ const userservice = new UserService(userRepo);
 router.post("/signup", async (req, res) => {
   try {
     const { email, password, username = "default" } = req.body;
-    // const data = await userservice.SignUp({ email, password, username });
-    // console.log("DATA:", data);
-    // if (data.success) {
-    //   res.cookie("rt", data.tokens.refreshToken, {
-    //     httpOnly: true,
-    //     sameSite: "none",
-    //     secure: true,
-    //     maxAge: 24 * 60 * 60 * 1000,
-    //   });
-    //   return res.status(200).json(data);
-    // }
+    const data = await userservice.SignUp({ email, password, username });
+    console.log("DATA:", data);
+    if (data.success) {
+      res.cookie("rt", data.tokens.refreshToken, {
+        httpOnly: true,
+        sameSite: "none",
+        secure: true,
+        maxAge: 24 * 60 * 60 * 1000,
+      });
+      return res.status(200).json(data);
+    }
     return res.status(200).json(req.body);
   } catch (e) {
     console.log("Error while handling signup request:", e);
@@ -109,3 +109,5 @@ router.get("/clear-cookies", async (req, res) => {
 router.get("/protected", auth, async (req, res) => {
   res.status(200).json({ message: "secret message" });
 });
+
+module.exports = router;

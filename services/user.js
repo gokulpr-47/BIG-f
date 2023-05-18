@@ -1,9 +1,9 @@
-const { hash, compare } = require("bcrypt");
+const bcrypt = require("bcrypt");
 const { sign, verify } = require("jsonwebtoken");
 const {
   ACCESS_TOKEN_SECRET,
   REFRESH_TOKEN_SECRET,
-} = require("../config/index.js");
+} = require("../config/index");
 
 class UserService {
   userRepo;
@@ -14,10 +14,15 @@ class UserService {
 
   async SignUp({ email, password, username }) {
     try {
-      password = await hash(password, 10);
+      console.log(ACCESS_TOKEN_SECRET);
+      console.log(REFRESH_TOKEN_SECRET);
+      const saltRounds = 10;
+      const salt = await bcrypt.genSalt(saltRounds);
+      const hashedPassword = await bcrypt.hash(password, salt);
+
       const data = await this.userRepo.CreateUser({
         email,
-        password,
+        password: hashedPassword,
         username,
       });
 
