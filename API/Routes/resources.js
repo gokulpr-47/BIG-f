@@ -9,8 +9,6 @@ const resourcesRepository = new ResourcesRepository()
 const {ResourcesService} = require("../../services/resouces");
 const resourcesService = new ResourcesService(resourcesRepository); 
  
-
-
 router.post("/", (req,res)=>{
     res.status(200).send(req.body)
 })

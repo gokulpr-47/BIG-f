@@ -11,9 +11,11 @@ class ResourcesService{
     }
     async createRources ({author, inputNotes, topic, deadline, studyType, visibilty}){
         try{
+            //to get the topics for the 
             const topics = this.openAi.getTopicsFromText(inputNotes);
             const prompt = "elaborate the following topics '" + topics +"'";
             const curatedNotes  = this.openAi.textCompletion(prompt);
+            this.resourceRepo.cre
             return {success:true, data:curatedNotes};
         }catch(e){
             console.log(ErrorMessage, e);
@@ -21,7 +23,6 @@ class ResourcesService{
         }
     }
 }
-
 
 class OpenAI {
 
