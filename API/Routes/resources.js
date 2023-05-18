@@ -16,7 +16,7 @@ router.post("/", (req,res)=>{
 router.post("/create/:uid", async(req, res)=>{
     try{
         const {author, inputNotes, topic, deadline, studyType, visibilty} = req.body;
-        const data = await resourcesService.createResource({author,inputNotes, topic, deadline, studyType, });
+        const data = await resourcesService.createRources({author,inputNotes, topic, deadline, studyType, });
         if(data.success) return res.status(200).json({data});
         return res.status(400).json({data})
     }catch(e){

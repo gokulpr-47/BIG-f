@@ -1,6 +1,6 @@
 const ErrorMessage = "Error in Resources Service Layer:";
+const axios = require('axios');
 const {OPENAI_SECRET_KEY} = require("../config/index")
-const axios = require('axios')
 
 class ResourcesService{
     resourceRepo;
@@ -25,14 +25,35 @@ class ResourcesService{
 }
 
 class OpenAI {
-    axiosPrivate
+    
 
 
     async getTopicsFromText(text) {
-        // console.log(privateAxios)
+    
+        const axiosPrivate = axios.create({
+            baseURL: 'https://api.openai.com',
+            headers: {
+                "Content-Type": "application/json",
+                'Authorization': `Bearer ${OPENAI_SECRET_KEY}`
+            }
+        })
         // text = "what are the main topics covered in the following text " + text + " the output must contain only the topic names"
         try{
-
+            axiosPrivate.post("/v1/completions", {
+                "model": "text-davinci-003",
+                "prompt": "Say this is a test",
+                "max_tokens": 7,
+                "temperature": 0,
+                "top_p": 1,
+                "n": 1,
+                "stream": false,
+                "logprobs": null,
+              }).then(res=>{
+                console.log(res);
+              }).catch(e=>{
+                console.log("Error while contacting openAI", e)
+              })
+            return axiosPrivate
         }catch(e){
             console.log("Error while contact openAI for text to topic", e);
         }
