@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import "./SignUp.css";
+import { NavLink } from "react-router-dom";
 
 export default function SignUp() {
+  const [firstname, setFirstname] = useState();
+  const [lastname, setLastname] = useState();
+  const [username, setUsername] = useState();
+  const [password, setPassword] = useState();
+  const [confirmpassword, setConfirmpassword] = useState();
+  const [sem, setSem] = useState();
+  const [grad, setGrad] = useState();
+  const [branch, setBranch] = useState();
+  const [college, setCollege] = useState();
+
   return (
     <div className="signup">
       <div className="signup-header">
@@ -20,7 +31,9 @@ export default function SignUp() {
         </div>
         <div className="top-login-button">
           <img className="dotslogin" src="/images/3circles.svg" alt="" />
-          <img src="/images/sign up button.svg" alt="" width="110px" />
+          <NavLink to="/login">
+            <img src="/images/sign up button.svg" alt="" width="110px" />
+          </NavLink>
         </div>
       </div>
 
@@ -44,7 +57,11 @@ export default function SignUp() {
                   </label>
                 </div>
                 <div className="inputfname">
-                  <input type="text" className="textuser2" />
+                  <input
+                    type="text"
+                    className="textuser2"
+                    onChange={(e) => setFirstname(e.target.value)}
+                  />
                 </div>
               </div>
               <div className="box-design lname">
@@ -54,7 +71,11 @@ export default function SignUp() {
                   </label>
                 </div>
                 <div className="inputfname">
-                  <input type="text" className="textuser2" />
+                  <input
+                    type="text"
+                    className="textuser2"
+                    onChange={(e) => setLastname(e.target.value)}
+                  />
                 </div>
               </div>
             </div>
@@ -65,7 +86,11 @@ export default function SignUp() {
                 </label>
               </div>
               <div className="inputuser">
-                <input type="text" className="textuser1" />
+                <input
+                  type="text"
+                  className="textuser1"
+                  onChange={(e) => setUsername(e.target.value)}
+                />
               </div>
             </div>
 
@@ -79,10 +104,18 @@ export default function SignUp() {
                 <div className="passwordWithArrow">
                   <div className="passwordFields">
                     <div className="input1">
-                      <input type="password" className="textuser1" />
+                      <input
+                        type="password"
+                        className="textuser1"
+                        onChange={(e) => setPassword(e.target.value)}
+                      />
                     </div>
                     <div className="input1">
-                      <input type="password" className="textuser1" />
+                      <input
+                        type="password"
+                        className="textuser1"
+                        onChange={(e) => setConfirmpassword(e.target.value)}
+                      />
                     </div>
                   </div>
                   <div className="imgconfirm">
@@ -112,7 +145,11 @@ export default function SignUp() {
                   </label>
                 </div>
                 <div className="seminputer">
-                  <input className="textuser3" type="text" />
+                  <input
+                    className="textuser3"
+                    type="text"
+                    onChange={(e) => setSem(e.target.value)}
+                  />
                 </div>
               </div>
 
@@ -121,7 +158,11 @@ export default function SignUp() {
                   <label htmlFor="sem">grad year</label>
                 </div>
                 <div className="yearinput">
-                  <input className="textuser3" type="text" />
+                  <input
+                    className="textuser3"
+                    type="text"
+                    onChange={(e) => setGrad(e.target.value)}
+                  />
                 </div>
               </div>
               <div className="submit">
@@ -140,7 +181,11 @@ export default function SignUp() {
                   <label htmlFor="branch">branch</label>
                 </div>
                 <div className="branchinput">
-                  <input className="textuser4" type="text" />
+                  <input
+                    className="textuser4"
+                    type="text"
+                    onChange={(e) => setBranch(e.target.value)}
+                  />
                 </div>
               </div>
 
@@ -149,7 +194,11 @@ export default function SignUp() {
                   <label htmlFor="college">College</label>
                 </div>
                 <div className="clginput">
-                  <input className="textuser5" type="text" />
+                  <input
+                    className="textuser5"
+                    type="text"
+                    onChange={(e) => setCollege(e.target.value)}
+                  />
                 </div>
               </div>
             </div>
