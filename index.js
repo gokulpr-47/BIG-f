@@ -10,6 +10,7 @@ const cookieParser = require("cookie-parser");
 
 (async () => {
   // code goes here
+  console.log("calling connect db")
   await connectDB();
 })();
 
