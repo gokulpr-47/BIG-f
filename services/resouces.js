@@ -10,10 +10,12 @@ const replaceExcapeSequence =(text) =>{
 
 class ResourcesService{
     resourceRepo;
+    chatRepo
     openAi = new OpenAI();
 
-    constructor(resourceRepo){
+    constructor(resourceRepo, chatRepo){
         this.resourceRepo = resourceRepo
+        this.chatRepo = chatRepo
     }
     async createRources ({author, inputNotes, topic, deadline, studyType, visibilty}){
         try{
@@ -41,8 +43,6 @@ class ResourcesService{
 }
 
 class OpenAI {
-    
-
 
     async getTopicsFromText(text) {
     
