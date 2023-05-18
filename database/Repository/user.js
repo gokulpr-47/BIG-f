@@ -2,9 +2,9 @@ const userModel = require("../models/user");
 const refreshTokenModel = require("../models/refreshToken");
 
 class UserRepository {
-  async CreateUser({ email, password, username }) {
+  async CreateUser({  firstname, lastname,sem, gradYear, branch, college, password, username }) {
     try {
-      const user = new userModel({ email, password, username });
+      const user = new userModel({firstname, lastname,sem, gradYear, branch, college, password, username });
       await user.save();
       return { success: true, data: user };
     } catch (e) {

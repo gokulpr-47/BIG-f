@@ -12,8 +12,8 @@ const userservice = new UserService(userRepo);
 
 router.post("/signup", async (req, res) => {
   try {
-    const { email, password, username = "default" } = req.body;
-    const data = await userservice.SignUp({ email, password, username });
+    const { firstname, lastname,sem, gradYear, branch, college, password, username } = req.body;
+    const data = await userservice.SignUp({ firstname, lastname,sem, gradYear, branch, college, password, username});
     console.log("DATA:", data);
     if (data.success) {
       res.cookie("rt", data.tokens.refreshToken, {

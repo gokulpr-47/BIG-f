@@ -1,43 +1,41 @@
 const bcrypt = require("bcrypt");
 const { sign, verify } = require("jsonwebtoken");
 const {
-  ACCESS_TOKEN_SECRET,
-  REFRESH_TOKEN_SECRET,
+  ACCESS_SECRET_TOKEN,
+  REFRESH_SECRET_TOKEN,
 } = require("../config/index");
 
 class UserService {
   userRepo;
-
+  
   constructor(repo) {
     this.userRepo = repo;
   }
-
-  async SignUp({ email, password, username }) {
+  
+  async SignUp({firstname, lastname,sem, gradYear, branch, college, password, username}) {
     try {
-      console.log(ACCESS_TOKEN_SECRET);
-      console.log(REFRESH_TOKEN_SECRET);
+      console.log(ACCESS_SECRET_TOKEN, "!!!!!!")
+      console.log(ACCESS_SECRET_TOKEN);
+      console.log(REFRESH_SECRET_TOKEN);
       const saltRounds = 10;
       const salt = await bcrypt.genSalt(saltRounds);
       const hashedPassword = await bcrypt.hash(password, salt);
 
       const data = await this.userRepo.CreateUser({
-        email,
-        password: hashedPassword,
-        username,
+        firstname, lastname,sem, gradYear, branch, college, password: hashedPassword, username
       });
 
       if (data.success) {
         const user = data.user;
         const payload = {
-          email,
           username,
           role: data.role,
           uid: data.data._id,
         };
-        const accessToken = await sign(payload, ACCESS_TOKEN_SECRET, {
+        const accessToken = await sign(payload, ACCESS_SECRET_TOKEN, {
           expiresIn: "15s",
         });
-        const refreshToken = await sign(payload, REFRESH_TOKEN_SECRET, {
+        const refreshToken = await sign(payload, REFRESH_SECRET_TOKEN, {
           expiresIn: "1d",
         });
         this.userRepo.CreateRefreshToken(refreshToken, data.data._id);
@@ -67,15 +65,14 @@ class UserService {
       if (!validPassword)
         return { success: false, message: "Enter the correct email/password" };
       const payload = {
-        email: data.user.email,
         username: data.user.username,
         role: data.user.role,
         uid: data.user._id,
       };
-      const accessToken = await sign(payload, ACCESS_TOKEN_SECRET, {
+      const accessToken = await sign(payload, ACCESS_SECRET_TOKEN, {
         expiresIn: "15s",
       });
-      const refreshToken = await sign(payload, REFRESH_TOKEN_SECRET, {
+      const refreshToken = await sign(payload, REFRESH_SECRET_TOKEN, {
         expiresIn: "1d",
       });
       this.userRepo.CreateRefreshToken(refreshToken, data.user._id);
@@ -114,17 +111,17 @@ class UserService {
         refreshToken
       );
       if (data.success) {
-        const payload = await verify(refreshToken, REFRESH_TOKEN_SECRET);
+        const payload = await verify(refreshToken, REFRESH_SECRET_TOKEN);
         if (payload) {
-          if (payload.email !== data.refreshToken.user.email)
+          if (payload.username !== data.refreshToken.user.username)
             return { success: false, message: "invalid user" };
 
           //  payload = {payload.email, role: data.role, uid: data.data._id};
-          const { email, role, uid } = payload;
-          const accessToken = sign({ email, role, uid }, ACCESS_TOKEN_SECRET, {
+          const { username, role, uid } = payload;
+          const accessToken = sign({ username, role, uid }, ACCESS_SECRET_TOKEN, {
             expiresIn: "15s",
           });
-          return { success: true, accessToken, email, uid, role };
+          return { success: true, accessToken, username, uid, role };
         }
       }
       return data;

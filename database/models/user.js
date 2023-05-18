@@ -6,10 +6,34 @@ const userSchema = new Schema({
     required: true,
     unique: true,
   },
-  email: {
+  // email: {
+  //   type: String,
+  //   required: true,
+  //   unique: true,
+  // },
+  firstname: {
+    type:String,
+    required: true,
+  },
+  lastname: {
     type: String,
     required: true,
-    unique: true,
+  },
+  sem: {
+    type: Number,
+    required: true
+  },
+  gradYear: {
+    type: Number,
+    required: true,
+  },
+  branch: {
+    type: String,
+    required: true
+  },
+  college: {
+    type:String,
+    required: true
   },
   password: {
     type: String,
