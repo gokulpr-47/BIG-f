@@ -1,5 +1,6 @@
 import useState from "react";
 import "./SignUp.css";
+import { NavLink } from "react-router-dom";
 
 export default function SignUp() {
   const [firstName, setFirstName] = useState("");
@@ -39,7 +40,9 @@ export default function SignUp() {
         </div>
         <div className="top-login-button">
           <img className="dotslogin" src="/images/3circles.svg" alt="" />
-          <img src="/images/sign up button.svg" alt="" width="110px" />
+          <NavLink to="/login">
+            <img src="/images/sign up button.svg" alt="" width="110px" />
+          </NavLink>
         </div>
       </div>
 
