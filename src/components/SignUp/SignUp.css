@@ -5,5 +5,112 @@
 }
 .signup{
     background-color: #FDE3A0;
-    
+    height: 100vh;
+    width:  100vw;
+    display: flex;
+    justify-content: space-evenly;
+}
+.upleft{
+    display:flex ;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.upright{
+    /* background-color: red; */
+}
+.pageup{
+    height: 606px;
+}
+.upimgs{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.namecontainer{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.usernameconatainer{
+    /* align-items: center; */
+}
+.textuser1{      
+border: 2px solid;
+padding: 10px;
+border-radius: 25px;
+background: #FB0000;
+-webkit-box-shadow: -6px 9px 0px 2px #FDC000 ;
+-moz-box-shadow: -6px 9px 0px 2px #FDC000;
+box-shadow: 1px 5px 0px 0px #FDC000;
+width: 550px;
+height: 28px;
+}
+.loginform{
+    padding: 0 29px;
+}
+
+.login-div{
+    margin-bottom: 21px;
+}
+.textuser2{
+        
+border: 2px solid;
+padding: 10px;
+border-radius: 25px;
+background: #FB0000;
+-webkit-box-shadow: -6px 9px 0px 2px #FDC000 ;
+-moz-box-shadow: -6px 9px 0px 2px #FDC000;
+box-shadow: 1px 5px 0px 0px #FDC000;
+width: 280px;
+height: 28px;
+}
+.inputuser{
+    display: flex;
+}
+.semyearbtn{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.textuser3{
+    border: 2px solid;
+padding: 10px;
+border-radius: 25px;
+background: #FB0000;
+-webkit-box-shadow: -6px 9px 0px 2px #FDC000 ;
+-moz-box-shadow: -6px 9px 0px 2px #FDC000;
+box-shadow: 1px 5px 0px 0px #FDC000;
+width: 130px;
+height: 28px;
+}
+.branchcollege{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.textuser4{
+    border: 2px solid;
+    padding: 10px;
+    border-radius: 25px;
+    background: #FB0000;
+    -webkit-box-shadow: -6px 9px 0px 2px #FDC000 ;
+    -moz-box-shadow: -6px 9px 0px 2px #FDC000;
+    box-shadow: 1px 5px 0px 0px #FDC000;
+    width: 130px;
+    height: 28px;
+}
+.textuser5{
+    border: 2px solid;
+    padding: 10px;
+    border-radius: 25px;
+    background: #FB0000;
+    -webkit-box-shadow: -6px 9px 0px 2px #FDC000 ;
+    -moz-box-shadow: -6px 9px 0px 2px #FDC000;
+    box-shadow: 1px 5px 0px 0px #FDC000;
+    width: 300px;
+    height: 28px; 
+}
+.art{
+    height: 220px;
 }
