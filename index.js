@@ -5,13 +5,13 @@ const server = http.createServer(app);
 // const { Server } = require("socket.io");
 const cors = require("cors");
 const { PORT } = require("./config/index");
-// const { connectDB } = require("./config/db");
+const { connectDB } = require("./config/db");
 const cookieParser = require("cookie-parser");
 
-// (async () => {
-//   // code goes here
-//   await connectDB();
-// })();
+(async () => {
+  // code goes here
+  await connectDB();
+})();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
