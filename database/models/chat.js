@@ -12,6 +12,11 @@ const messageSchema = new Schema({
       insertToCuration: {
         type: Boolean,
         default: false,
+      },
+      from:{
+        type:"String",
+        enum: ["user", "assistant"],
+        required: true
       }
 })
 

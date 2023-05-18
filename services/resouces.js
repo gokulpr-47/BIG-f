@@ -40,7 +40,34 @@ class ResourcesService{
             return {success: false, error: e}
         }
     }
+
+    async addMessage({messageText, dateTime, uid}){
+        try{
+            const  responseMessage = await this.openAi.sendChatMessage(messageText);
+
+            const messages = [{messageText: messageText, dateTime, from: "user"}, {messageText: responseMessage, dateTime, from: "assistant"}];
+            //check if chats already exits
+            const chatsData = await this.chatRepo.GetUserChats({uid});
+            console.log(chatsData)
+            let data = {}
+            if(chatsData.data?.length){
+                data = await this.chatRepo.AddMessage({uid, messages})
+            }else{
+                console.log("No previous Chats")
+                data = await this.chatRepo.CreateChat({uid, messages});
+            };
+
+            return {success: true, data: responseMessage};
+
+        }catch(e){
+            console.log(ErrorMessage, e);
+            return {success: false, error:e};
+        }
+    }
 }
+
+
+
 
 class OpenAI {
 
@@ -103,7 +130,28 @@ class OpenAI {
             console.log("Error while curation", e);
             return null
         }
+    }
 
+    async sendChatMessage(text){
+        try{
+            const axiosPrivate = axios.create({
+                baseURL: 'https://api.openai.com',
+                headers: {
+                    "Content-Type": "application/json",
+                    'Authorization': `Bearer ${OPENAI_SECRET_KEY}`
+                }
+            })
+
+            const response = await axiosPrivate.post("/v1/chat/completions", {
+  "model": "gpt-3.5-turbo",
+  "messages": [{role: "user", content: text}]
+})
+            console.log(response, "line 135");
+            return response?.data?.choices[0]?.message?.content;
+        }catch(e){
+            console.log("Error while sending message", e);
+            return null 
+        }
     }
 }
 
