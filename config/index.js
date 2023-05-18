@@ -7,10 +7,10 @@ if (process.env.NODE_ENV !== "prod") {
 } else {
   config({ path: "./.env" });
 }
-
 const PORT = process.env.PORT;
 const OPENAI_SECRET_KEY = process.env.OPENAISECRETKEY;
+const DB_URL = process.env.DB_URL;
 
 module.exports ={
-    PORT, OPENAI_SECRET_KEY
+    PORT, OPENAI_SECRET_KEY, DB_URL
 }
