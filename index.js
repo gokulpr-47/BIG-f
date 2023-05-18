@@ -43,7 +43,7 @@ app.use("/", (req, res, next) => {
 // app.use("/user", userRoutes);
 
 app.get("/", (req, res) => {
-  res.send("<h1>Welcome to the Anime-Store API!</h1>");
+  res.send("<h1>BIG-f</h1>");
 });
 
 server.listen(PORT, () => console.log(`Serving at port ${PORT}`));
