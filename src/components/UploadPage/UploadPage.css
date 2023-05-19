@@ -1,0 +1,179 @@
+.upload {
+  height: 100vh;
+  background-image: url("/public/images/upload/background.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.upload-navbar {
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.searchbar {
+  padding-right: 20px;
+}
+
+.dashbutton {
+  padding-right: 20px;
+  width: 130px;
+  height: 56px;
+}
+
+.logout {
+  width: 130px;
+  height: 56px;
+}
+
+.greeberandgrinder-container {
+  width: 100%;
+  position: relative;
+  top: 75px;
+  display: flex;
+}
+
+.greeberandgrinder {
+  width: fit-content;
+  position: relative;
+  padding-left: 43px;
+  z-index: 20;
+  top: -50px;
+}
+
+.arrow-container {
+  width: fit-content;
+  position: absolute;
+  top: 1px;
+  left: 440px;
+}
+
+.top-arrow {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: 30px;
+}
+
+.bottom-arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.butterGrid > .rel-bottom-content > img {
+  width: 495px;
+}
+
+.upload-left {
+  width: 50%;
+}
+
+.upload-right {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.upload-right > img {
+  width: 300px;
+}
+
+.rel-bottom-content {
+  position: absolute;
+  top: -49px;
+}
+.rel-above-content {
+  position: absolute;
+}
+
+.butterGrid {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+/* css */
+.file-input-label {
+  position: relative;
+  display: inline-block;
+}
+
+.file-input {
+  display: none;
+}
+
+.file-input-button {
+  position: relative;
+  width: 120px;
+  height: 40px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-text {
+  color: #fff;
+  background: #fde068;
+  text-decoration: none;
+  text-align: center;
+}
+
+.file-input-placeholder {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+#style {
+  width: 86px;
+  border-radius: 13px;
+  padding: 3px 10px;
+  outline: none;
+  background-color: #fde068;
+  position: absolute;
+  z-index: 10;
+}
+
+.box-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #aaa;
+}
+
+.shadow-box {
+  height: 25px;
+  border: 1px solid black;
+  width: 86px;
+  border-radius: 12px;
+  position: absolute;
+  top: 43px;
+  background: #fde068;
+}
+
+.rel-above-content {
+  display: grid;
+  grid-template-rows: 100px 100px 100px;
+  grid-template-columns: 100px 100px 100px;
+  gap: 30px;
+}
+
+.inputfile {
+  font-size: 14px;
+  text-align: center;
+  border: 1px solid black;
+  color: black;
+}
+
+.shadow-box2 {
+  height: 25px;
+  border: 1px solid black;
+  width: 86px;
+  border-radius: 12px;
+  position: absolute;
+  top: 21px;
+  background: #fde068;
+}
