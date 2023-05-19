@@ -1,49 +1,67 @@
 import { useEffect, useState } from "react";
 import "./SignUp.css";
 import useAuth from "../../Hooks/useAuth";
-import {useNavigate} from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
-import axios from "../../API/axios"
+import axios from "../../API/axios";
 
 export default function SignUp() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [username, setUsername] = useState("");
-  const [password,setPassword] = useState("");
+  const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [sem, setSem] = useState("");
   const [grad, setGrad] = useState("");
-  const [branch, setBranch] =useState("");
+  const [branch, setBranch] = useState("");
   const [college, setCollege] = useState("");
 
+  const { auth } = useAuth();
+  const navigate = useNavigate();
 
-  const {auth} = useAuth();
-  const navigate = useNavigate()
-
-  useEffect(()=>{
-    if(auth?.uid){
-        navigate(-1)
-    }else{
-        console.log("did not navigate back")
+  useEffect(() => {
+    if (auth?.uid) {
+      navigate(-1);
+    } else {
+      console.log("did not navigate back");
     }
-  }, [])
+  }, []);
 
-  const handleSubmit = (e) =>{
+  const handleSubmit = (e) => {
     e.preventDefault();
-    if(firstName && lastName && username && password && confirmPassword && sem && grad && branch && college){
+    if (
+      firstName &&
+      lastName &&
+      username &&
+      password &&
+      confirmPassword &&
+      sem &&
+      grad &&
+      branch &&
+      college
+    ) {
       console.log("hahaha");
-      axios.post("http://localhost:4000/user/signup", {
-        firstname:firstName, lastname:lastName, username, password, confirmPassword ,sem,gradYear: grad, branch, college
-        }).then(res=>{
-            console.log("res.data:", res.data)
-            if(res.data.success){
-                console.log("success");
-                // setResponseMessage("success")
-            }else console.log("failure")
+      axios
+        .post("http://localhost:4000/user/signup", {
+          firstname: firstName,
+          lastname: lastName,
+          username,
+          password,
+          confirmPassword,
+          sem,
+          gradYear: grad,
+          branch,
+          college,
         })
+        .then((res) => {
+          console.log("res.data:", res.data);
+          if (res.data.success) {
+            console.log("success");
+            // setResponseMessage("success")
+          } else console.log("failure");
+        });
     }
-  }
-
+  };
 
   return (
     <div className="signup">
@@ -89,7 +107,13 @@ export default function SignUp() {
                   </label>
                 </div>
                 <div className="inputfname">
-                  <input type="text" onChange={(e)=>{setFirstName(e.target.value)}} className="textuser2" />
+                  <input
+                    type="text"
+                    onChange={(e) => {
+                      setFirstName(e.target.value);
+                    }}
+                    className="textuser2"
+                  />
                 </div>
               </div>
               <div className="box-design lname">
@@ -99,7 +123,13 @@ export default function SignUp() {
                   </label>
                 </div>
                 <div className="inputfname">
-                  <input type="text" onChange={(e)=>{setLastName(e.target.value)}} className="textuser2" />
+                  <input
+                    type="text"
+                    onChange={(e) => {
+                      setLastName(e.target.value);
+                    }}
+                    className="textuser2"
+                  />
                 </div>
               </div>
             </div>
@@ -110,7 +140,13 @@ export default function SignUp() {
                 </label>
               </div>
               <div className="inputuser">
-                <input type="text" onChange={(e)=>{setUsername(e.target.value)}} className="textuser1" />
+                <input
+                  type="text"
+                  onChange={(e) => {
+                    setUsername(e.target.value);
+                  }}
+                  className="textuser1"
+                />
               </div>
             </div>
 
@@ -124,10 +160,22 @@ export default function SignUp() {
                 <div className="passwordWithArrow">
                   <div className="passwordFields">
                     <div className="input1">
-                      <input type="password" onChange={(e)=>{setPassword(e.target.value)}} className="textuser1" />
+                      <input
+                        type="password"
+                        onChange={(e) => {
+                          setPassword(e.target.value);
+                        }}
+                        className="textuser1"
+                      />
                     </div>
                     <div className="input1">
-                      <input type="password" onChange={(e)=>{setConfirmPassword(e.target.value)}} className="textuser1" />
+                      <input
+                        type="password"
+                        onChange={(e) => {
+                          setConfirmPassword(e.target.value);
+                        }}
+                        className="textuser1"
+                      />
                     </div>
                   </div>
                   <div className="imgconfirm">
@@ -157,7 +205,13 @@ export default function SignUp() {
                   </label>
                 </div>
                 <div className="seminputer">
-                  <input className="textuser3" onChange={(e)=>{setSem(e.target.value)}} type="text" />
+                  <input
+                    className="textuser3"
+                    onChange={(e) => {
+                      setSem(e.target.value);
+                    }}
+                    type="text"
+                  />
                 </div>
               </div>
 
@@ -166,7 +220,13 @@ export default function SignUp() {
                   <label htmlFor="sem">grad year</label>
                 </div>
                 <div className="yearinput">
-                  <input className="textuser3" onChange={(e)=>{setGrad(e.target.value)}} type="text" />
+                  <input
+                    className="textuser3"
+                    onChange={(e) => {
+                      setGrad(e.target.value);
+                    }}
+                    type="text"
+                  />
                 </div>
               </div>
               <div className="submit">
@@ -174,7 +234,7 @@ export default function SignUp() {
                   onClick={handleSubmit}
                   type="image"
                   name="submit"
-                  src="\images\loginlogo.svg"
+                  src="\images\sign up logo.svg"
                   value="submit"
                 />
               </div>
@@ -186,7 +246,13 @@ export default function SignUp() {
                   <label htmlFor="branch">branch</label>
                 </div>
                 <div className="branchinput">
-                  <input className="textuser4" onChange={(e)=>{setBranch(e.target.value)}} type="text" />
+                  <input
+                    className="textuser4"
+                    onChange={(e) => {
+                      setBranch(e.target.value);
+                    }}
+                    type="text"
+                  />
                 </div>
               </div>
 
@@ -195,7 +261,13 @@ export default function SignUp() {
                   <label htmlFor="college">College</label>
                 </div>
                 <div className="clginput">
-                  <input className="textuser5" onChange={(e)=>{setCollege(e.target.value)}} type="text" />
+                  <input
+                    className="textuser5"
+                    onChange={(e) => {
+                      setCollege(e.target.value);
+                    }}
+                    type="text"
+                  />
                 </div>
               </div>
             </div>
