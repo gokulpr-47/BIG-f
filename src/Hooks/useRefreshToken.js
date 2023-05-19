@@ -13,8 +13,8 @@ const useRefreshToken = () => {
       }
     );
     if (res.data.success) {
-      const { email, role, uid, accessToken } = res.data;
-      const payload = { email, role, uid, accessToken };
+      const { email, uid, accessToken } = res.data;
+      const payload = { email, uid, accessToken };
       setAuth(payload);
       return res.data.accessToken;
     } else {
