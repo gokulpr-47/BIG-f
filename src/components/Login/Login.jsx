@@ -1,12 +1,12 @@
-import  { useState } from "react";
+import { useState } from "react";
 import "./Login.css";
 import { NavLink } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import axios from "../../API/axios";
-import { useNavigate} from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 
 function Login() {
-  const {setAuth} = useAuth();
+  const { setAuth } = useAuth();
   // console.log("auth:", auth)
   const navigate = useNavigate();
   // const location = useLocation();
@@ -15,34 +15,44 @@ function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-
-  const handleSubmit = (e) =>{
+  const handleSubmit = (e) => {
     e.preventDefault();
-    if(username&&password){
-      console.log("lalalalala")
+    if (username && password) {
+      console.log("lalalalala");
 
-      axios.post("user/signin", {
-        authText:username, password
-      }, {
-        withCredentials: true
-      }).then(res=>{
-        if(res.data.success){
-            console.log("successsss", res.data)
-            setAuth({uid: res.data.user._id, role: res.data.user.role, accessToken: res.data.accessToken})
+      axios
+        .post(
+          "user/signin",
+          {
+            authText: username,
+            password,
+          },
+          {
+            withCredentials: true,
+          }
+        )
+        .then((res) => {
+          if (res.data.success) {
+            console.log("successsss", res.data);
+            setAuth({
+              uid: res.data.user._id,
+              role: res.data.user.role,
+              accessToken: res.data.accessToken,
+            });
             setPassword("");
             setUsername("");
-            if(res.data.user.role === "admin"){
-                console.log("ewwewew")
-                navigate("/admin-panel")
-            } else if(res.data.user.role === "user"){
-                navigate("/home")
+            if (res.data.user.role === "admin") {
+              console.log("ewwewew");
+              navigate("/admin-panel");
+            } else if (res.data.user.role === "user") {
+              navigate("/home");
             }
-        }else {
-          console.log("failure")
-        }
-    })
+          } else {
+            console.log("failure");
+          }
+        });
     }
-  }
+  };
 
   return (
     <div className="login">
@@ -89,7 +99,7 @@ function Login() {
                 </div>
                 <div className="submit">
                   <input
-                  onClick={handleSubmit}
+                    onClick={handleSubmit}
                     type="image"
                     name="submit"
                     src="\images\loginlogo.svg"
@@ -112,11 +122,7 @@ function Login() {
             </form>
           </div>
           <div className="indigo">
-            <img
-              src="\images\indigogridsignup.svg"
-              alt=""
-              className="indigogrid"
-            />
+            <img src="\images\indigos.svg" alt="" className="indigogrid" />
           </div>
         </div>
         <div className="third">
