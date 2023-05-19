@@ -22,6 +22,6 @@ Content-Type: application/json
 
 {
     "uid":"121",
-    "message_id": "6466d0d72267c3cd40df31e9":, 
+    "message_id": "6466d0d72267c3cd40df31e9", 
     "resource_id": "6466cffa2267c3cd40df31e4"
 }

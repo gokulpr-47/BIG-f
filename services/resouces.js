@@ -17,7 +17,7 @@ class ResourcesService{
         this.resourceRepo = resourceRepo
         this.chatRepo = chatRepo
     }
-    async createRources ({author, inputNotes, topic, deadline, studyType, visibilty}){
+    async createRources ({author, inputNotes, topic, Adate, Atime,Atype,reference, studyType, visibilty}){
         try{
             let response = ""
             //to get the topics for the 
@@ -27,11 +27,20 @@ class ResourcesService{
                 response = topics;
                 topics = replaceExcapeSequence(topics);
                 console.log(topics);
-                const prompt = "elaborate the following topics mentioned in the array " + topics;
+                let prompt =""
+                if(reference){
+                    prompt = "elaborate the following topics mentioned in the array by taking "+reference+" as reference " + topics;
+                    
+                }else{
+                    prompt = "elaborate the following topics mentioned in the array " + topics;
+
+                }
                 const curatedNotes  = await this.openAi.textCompletion(prompt);
                 console.log(curatedNotes, "line 28");
                 response = curatedNotes;
-                const data = await this.resourceRepo.createResources({author, mainTopics: JSON.parse(topics), inputNotes,curatedNotes, topic, deadline, studyType, visibilty})
+                const mainTopics = JSON.parse(topics)
+                console.log("#@#@#@", mainTopics)
+                const data = await this.resourceRepo.createResources({author, mainTopics: JSON.parse(topics), Adate, Atime,Atype,reference, inputNotes,curatedNotes, topic, studyType, visibilty: visibilty?"public":"private"})
                 console.log(data, "line 35")
                 return data;
             }else{

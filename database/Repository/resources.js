@@ -2,9 +2,9 @@ const ResourcesModel = require("../models/resources");
 const ErrorMessages = "Error at Resources Repository layer:";
 
 class ResourcesRepository { 
-    async createResources({author, inputNotes,curatedNotes, mainTopics, topic, deadline, studyType, visibilty}) {
+    async createResources({author, inputNotes,mainTopics, topic, Adate, Atime,Atype,reference, studyType, visibilty, curatedNotes}) {
         try{
-            const resource = new ResourcesModel({author, inputNotes, mainTopics, curatedNotes, topic, deadline, studyType, visibilty});
+            const resource = new ResourcesModel({author, mainTopics, inputNotes, topic, Adate, Atime,Atype,reference, studyType, visibilty, curatedNotes});
             await resource.save();
             return {success: true, data: resource}
         }catch(e){

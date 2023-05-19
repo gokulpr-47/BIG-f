@@ -61,7 +61,7 @@ class UserService {
       else data = await this.userRepo.GetUserWithUsername(authText);
       console.log(data);
       if (!data.success) return data;
-      const validPassword = await compare(password, data.user.password);
+      const validPassword = await bcrypt.compare(password, data.user.password);
       if (!validPassword)
         return { success: false, message: "Enter the correct email/password" };
       const payload = {

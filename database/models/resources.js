@@ -20,7 +20,13 @@ const ResourceSchema = new Schema({
     curatedNotes: {
         type:String,
     },
-    deadline: {
+    reference: {
+        type:String
+    },
+    Atime: {
+        type:String,
+    },
+    Adate: {
         type:Number,
     },
     studyType: {
