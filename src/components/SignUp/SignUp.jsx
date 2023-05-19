@@ -70,7 +70,8 @@ export default function SignUp() {
         <div className="middlebox">
           <div className="middlebox-container">
             <div className="middlebox-rel">
-              <img src="/images/indigogridsignup.svg" alt="" />
+              <NavLink></NavLink>
+              <button className="big-button">signup</button>
             </div>
             <div className="middlebox-abs">
               <img src="/images/il.body.svg" alt="" />
@@ -82,7 +83,7 @@ export default function SignUp() {
         <div className="top-login-button">
           <img className="dotslogin" src="/images/3circles.svg" alt="" />
           <NavLink to="/login">
-            <img src="/images/sign up button.svg" alt="" width="110px" />
+            <button className="big-button">login</button>
           </NavLink>
         </div>
       </div>

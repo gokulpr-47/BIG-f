@@ -1,6 +1,7 @@
 import React from "react";
 import "./LandingPage.css";
 import Fade from "react-reveal/Fade";
+import { NavLink } from "react-router-dom";
 function LandingPage() {
   return (
     <div className="landingpage">
@@ -59,8 +60,12 @@ function LandingPage() {
                   />
                 </div>
                 <div className="lpbtn btn">
-                  <button className=" butonbigger big-button">signup</button>
-                  <button className=" butonbigger big-button">Login</button>
+                  <NavLink to="signup">
+                    <button className=" butonbigger big-button">signup</button>
+                  </NavLink>
+                  <NavLink to="login">
+                    <button className=" butonbigger big-button">Login</button>
+                  </NavLink>
                 </div>
               </div>
             </div>

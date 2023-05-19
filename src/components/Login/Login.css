@@ -145,21 +145,22 @@ button.big-button:active::before {
 }
 .second {
   height: 625px;
-  width: 750px;
+  width: 628px;
+
   left: 813px;
   top: 158px;
   border-radius: 32px;
   /* position: relative; */
 }
-.grid {
+.grid1 {
   mix-blend-mode: darken;
 }
-.second > .grid {
+.second > .grid1 {
   width: fit-content;
   margin-left: auto;
   transform: translate(97px, 10px);
 }
-.gridimg {
+.grid1img {
   mix-blend-mode: multiply;
   /* position: absolute; */
 }
@@ -177,9 +178,9 @@ label {
 span {
   text-decoration: underline;
 }
-.indigogrid {
+.indigogrid1 {
   mix-blend-mode: exclusion;
-  height: 157px;
+  /* height: 157px; */
   margin-bottom: 20px;
 }
 .page {
@@ -239,4 +240,15 @@ span {
 .rightbtn {
   position: relative;
   top: -12px;
+}
+
+.circle,
+.form,
+.indigo {
+  width: 50%;
+}
+
+.indigo > img {
+  mix-blend-mode: exclusion;
+  width: 448px;
 }

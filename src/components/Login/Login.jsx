@@ -78,7 +78,7 @@ function Login() {
           <img src="\images\elipseandline.svg" alt="5" className="elipse" />
         </div>
         <div className="second">
-          <div className="grid">
+          <div className="grid1">
             <img src="\images\Rectangle 8.svg" alt="" className="gridimg" />
           </div>
           <div className="circle">
