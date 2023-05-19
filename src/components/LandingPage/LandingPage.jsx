@@ -1,9 +1,9 @@
-import React from 'react'
+// import React from 'react'
 import './LandingPage.css'
-import Bounce from 'react-reveal/Bounce';
+// import Bounce from 'react-reveal/Bounce';
 import Fade from 'react-reveal/Fade';
-import Zoom from 'react-reveal/Zoom';
-import Flash from 'react-reveal/Flash';
+// import Zoom from 'react-reveal/Zoom';
+// import Flash from 'react-reveal/Flash';
 function LandingPage() {
   return (
     <div className='landingpage'>
