@@ -30,14 +30,26 @@ class ResourcesService{
                 const prompt = "elaborate the following topics mentioned in the array " + topics;
                 const curatedNotes  = await this.openAi.textCompletion(prompt);
                 console.log(curatedNotes, "line 28");
-                response = curatedNotes
+                response = curatedNotes;
+                const data = await this.resourceRepo.createResources({author, mainTopics: JSON.parse(topics), inputNotes,curatedNotes, topic, deadline, studyType, visibilty})
+                return data;
             }else{
-                console.log("It ain't string")
+                return {success :false, error: "server-error"}
             }
-            return {success:true, data:response};
+            
         }catch(e){
             console.log(ErrorMessage, e);
             return {success: false, error: e}
+        }
+    }
+
+    async getAdditionalResources({mainTopics}){
+        try{
+            const data = await this.resourceRepo.getResourcesByTopics({mainTopics});
+            return data;
+        }catch(e){
+            console.log(ErrorMessage, e);
+            return {success: false, error: e};
         }
     }
 
@@ -62,6 +74,18 @@ class ResourcesService{
         }catch(e){
             console.log(ErrorMessage, e);
             return {success: false, error:e};
+        }
+    }
+
+
+
+    async GetResourceById({id}){
+        try{
+            const data = await this.resourceRepo.getResourceById({id});
+            return data;
+        }catch(e){
+            console.log(ErrorMessage, e);
+            return {success: false, error: e};
         }
     }
 }

@@ -25,6 +25,18 @@ router.post("/create/:uid", async(req, res)=>{
     }
 });
 
+router.get("/single/:id", async (req, res) => {
+    try{
+        const {id} = req.params;
+        const data = await resourcesService.GetResourceById({id});
+        if(data.success) return res.status(200).json(data);
+        return res.status(200).json(data)
+    }catch(e){
+        console.log("Error while handline get resource by id", e);
+        return res.status(400).json({success: false, error: e})
+    }
+})
+
 router.post("/chat/new-message/:uid", async(req, res)=>{
     try{
         const {uid} = req.params;
@@ -34,6 +46,18 @@ router.post("/chat/new-message/:uid", async(req, res)=>{
         return res.status(400).json(data)
     }catch(e){
         console.log("Error while handling new-message", e);
+        return res.status(400).json({success: false, error: e});
+    }
+})
+
+router.post("/additional-resources", async(req, res)=>{
+    try{
+        const {mainTopics} = req.body;
+        const data = await resourcesService.getAdditionalResources({mainTopics});
+        if(data.success)return res.status(200).json(data);
+        return res.status(400).json(data)
+    }catch(e){
+        console.log("Error while handling addition info request", e);
         return res.status(400).json({success: false, error: e});
     }
 })

@@ -14,6 +14,9 @@ const ResourceSchema = new Schema({
         type:String,
         // required: true,
     },
+    mainTopics: {
+        type:[String],
+    },
     curatedNotes: {
         type:String,
     },
