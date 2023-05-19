@@ -5,7 +5,8 @@ class ResourcesRepository {
     async createResources({author, inputNotes,curatedNotes, mainTopics, topic, deadline, studyType, visibilty}) {
         try{
             const resource = new ResourcesModel({author, inputNotes, mainTopics, curatedNotes, topic, deadline, studyType, visibilty});
-            resource.save();
+            await resource.save();
+            return {success: true, data: resource}
         }catch(e){
             console.log(ErrorMessages, e);
             return {success: false, error: e};
@@ -16,6 +17,20 @@ class ResourcesRepository {
         try{
             const res = await ResourcesModel.findById(id);
             return {success: true, data: res};
+        }catch(e){
+            console.log(ErrorMessages, e);
+            return {success: false, error: e}
+        }
+    }
+
+    async appendText({resource_id, textMessage}){
+
+        try{
+            console.log(textMessage);
+            const res = await ResourcesModel.findById(resource_id);
+            res.curatedNotes += `\n${textMessage}`;
+            await res.save() 
+            return {success: true, data: res}
         }catch(e){
             console.log(ErrorMessages, e);
             return {success: false, error: e}

@@ -2,14 +2,26 @@ POST http://localhost:4000/resource/create/123 HTTP/1.1
 Content-Type: application/json
 
 {
+    "author": "121",
     "inputNotes": "Inside double braces:{{`expression`}}.Can also be written inside a directive:ng-bind='expression'.AngularJS Expressions vs. JavaScript Expressions Like JavaScript expressions, AngularJS expressions can contain literals, operators, and variables. Unlike JavaScript expressions, AngularJS expressions can be written inside HTML. AngularJS expressions do not support conditionals, loops, and exceptions, while JavaScript expressions do.expressions support filters, while JavaScript expressions do not. Example {{ 5 + 5 }} or {{ firstName + ' ' + lastName }}"
 }
 
 ###
-POST http://localhost:4000/resource/chat/new-message/223 HTTP/1.1
+POST http://localhost:4000/resource/chat/new-message/121 HTTP/1.1
 Content-Type: application/json
 
 {
     "messageText": "how to support your collegues?",
     "dateTime": 1684435969
+}
+
+###
+
+POST http://localhost:4000/resource/add-text-message-to-resource HTTP/1.1
+Content-Type: application/json
+
+{
+    "uid":"121",
+    "message_id": "6466d0d72267c3cd40df31e9":, 
+    "resource_id": "6466cffa2267c3cd40df31e4"
 }

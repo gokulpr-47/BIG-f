@@ -32,6 +32,7 @@ class ResourcesService{
                 console.log(curatedNotes, "line 28");
                 response = curatedNotes;
                 const data = await this.resourceRepo.createResources({author, mainTopics: JSON.parse(topics), inputNotes,curatedNotes, topic, deadline, studyType, visibilty})
+                console.log(data, "line 35")
                 return data;
             }else{
                 return {success :false, error: "server-error"}
@@ -77,7 +78,18 @@ class ResourcesService{
         }
     }
 
-
+    async AddMessageToResource({uid, message_id, resource_id}) {
+        try{
+            console.log(message_id)
+            const textMessage  = await this.chatRepo.getTextMessageById({id: message_id, uid});
+            const data = await this.resourceRepo.appendText({resource_id, textMessage: textMessage.data})
+            
+            return data;
+        }catch(e){
+            console.log(ErrorMessage, e);
+            return {success: false, error:e}
+        }
+    }
 
     async GetResourceById({id}){
         try{

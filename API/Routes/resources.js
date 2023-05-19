@@ -50,6 +50,18 @@ router.post("/chat/new-message/:uid", async(req, res)=>{
     }
 })
 
+router.post("/add-text-message-to-resource", async(req, res)=>{
+    try{
+        const {uid, message_id, resource_id} = req.body;
+        const data = await resourcesService.AddMessageToResource({uid, message_id, resource_id});
+        if(data?.success) return res.status(200).json(data);
+        return res.status(400).json(data);
+    }catch(e){
+        console.log("Error while handling addition of text message to resource", e);
+        return res.status(400).json({success: false, error: e});
+    }
+})
+
 router.post("/additional-resources", async(req, res)=>{
     try{
         const {mainTopics} = req.body;

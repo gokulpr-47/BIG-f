@@ -31,6 +31,40 @@ class ChatRepository {
         }
     }
 
+    async getTextMessageById({id, uid}){
+        try{
+            const message = await ChatModel.aggregate([
+                {
+                    $match:{
+                        'uid': uid
+                    },
+                },
+                {
+                    $unwind: "$messages"
+                },
+                {
+                    $addFields: { message_id: { $toObjectId: id } },
+                },
+                {
+                    $match: {
+                        $expr: {
+                            $eq: [
+                              { $toString: "$messages._id" },
+                              id
+                            ]
+                        }
+                    }
+                }
+            ])
+            console.log(message[0].messages.messageText)
+            const text = message[0].messages.messageText;
+            return {success: true, data: text};
+        }catch(e){
+            console.log(ErrorMessage, e);
+            return {success: false, error: e};
+        }
+    }
+
     async GetUserChats({uid}){
         try{
             const chats = await ChatModel.find({uid});
