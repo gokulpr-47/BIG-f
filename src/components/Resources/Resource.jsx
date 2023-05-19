@@ -2,10 +2,12 @@ import React, {useState, useEffect} from 'react'
 import './Resource.css'
 import { NavLink, useParams } from "react-router-dom";
 import useAxiosPrivate from '../../Hooks/useAxiosPrivate';
+import useAuth from '../../Hooks/useAuth';
 function Resource() {
     const axiosPrivate = useAxiosPrivate();
     const {id} = useParams();
     const [resource, setResource] = useState();
+    const{auth, setAuth} = useAuth()
     useEffect(()=>{
         axiosPrivate.get(`/resource/single/${id}`).then(res=>{
             console.log(res.data.data);
@@ -14,6 +16,16 @@ function Resource() {
             }
         })
     }, [])
+    const handleSubmit = (e)=>{
+        e.preventDefault()
+        axiosPrivate.post(`/user/logout/${auth.uid}`).then(res=>{
+            console.log(res.data)
+            if(res.data.success){
+                console.log("sda")
+                setAuth({});
+            }
+        }) 
+    }
 
 
     return (
@@ -26,7 +38,7 @@ function Resource() {
                     <div className="btn rightbtn">
 
                     <NavLink to="/signup">
-                    <button className="big-button">signin</button>
+                    <button onClick={handleSubmit} className="big-button">signin</button>
             </NavLink>
 
 
