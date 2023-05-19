@@ -31,7 +31,7 @@ const ResourceSchema = new Schema({
     },
     studyType: {
         type: String,
-        enum: ["grinders", "nerds"]
+        enum: ["grinder", "greeber"]
     },
     visibility: {
         type: String,
