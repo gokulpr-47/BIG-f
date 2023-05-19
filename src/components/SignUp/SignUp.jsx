@@ -33,7 +33,7 @@ export default function SignUp() {
     if(firstName && lastName && username && password && confirmPassword && sem && grad && branch && college){
       console.log("hahaha");
       axios.post("http://localhost:4000/user/signup", {
-        firstName, lastName, username, password, confirmPassword ,sem,grad, branch, college
+        firstname:firstName, lastname:lastName, username, password, confirmPassword ,sem,gradYear: grad, branch, college
         }).then(res=>{
             console.log("res.data:", res.data)
             if(res.data.success){
