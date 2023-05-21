@@ -7,14 +7,23 @@ const {
 
 class UserService {
   userRepo;
-  
+
   constructor(repo) {
     this.userRepo = repo;
   }
-  
-  async SignUp({firstname, lastname,sem, gradYear, branch, college, password, username}) {
+
+  async SignUp({
+    firstname,
+    lastname,
+    sem,
+    gradYear,
+    branch,
+    college,
+    password,
+    username,
+  }) {
     try {
-      console.log(ACCESS_SECRET_TOKEN, "!!!!!!")
+      console.log(ACCESS_SECRET_TOKEN, "!!!!!!");
       console.log(ACCESS_SECRET_TOKEN);
       console.log(REFRESH_SECRET_TOKEN);
       const saltRounds = 10;
@@ -22,7 +31,14 @@ class UserService {
       const hashedPassword = await bcrypt.hash(password, salt);
 
       const data = await this.userRepo.CreateUser({
-        firstname, lastname,sem, gradYear, branch, college, password: hashedPassword, username
+        firstname,
+        lastname,
+        sem,
+        gradYear,
+        branch,
+        college,
+        password: hashedPassword,
+        username,
       });
 
       if (data.success) {
@@ -56,10 +72,11 @@ class UserService {
   async SignIn({ authText, password }) {
     try {
       let data;
-      if (authText.includes("@"))
+      if (authText?.includes("@"))
         data = await this.userRepo.GetUserWithEmail(authText);
       else data = await this.userRepo.GetUserWithUsername(authText);
       console.log(data);
+      // data = await this.userRepo.GetUserWithUsername(authText);
       if (!data.success) return data;
       const validPassword = await bcrypt.compare(password, data.user.password);
       if (!validPassword)
@@ -118,9 +135,13 @@ class UserService {
 
           //  payload = {payload.email, role: data.role, uid: data.data._id};
           const { username, role, uid } = payload;
-          const accessToken = sign({ username, role, uid }, ACCESS_SECRET_TOKEN, {
-            expiresIn: "15s",
-          });
+          const accessToken = sign(
+            { username, role, uid },
+            ACCESS_SECRET_TOKEN,
+            {
+              expiresIn: "15s",
+            }
+          );
           return { success: true, accessToken, username, uid, role };
         }
       }
