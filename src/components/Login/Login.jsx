@@ -109,7 +109,7 @@ function Login() {
               <div className="pass">
                 <input
                   onChange={(e) => setPassword(e.target.value)}
-                  type="text"
+                  type="password"
                   className="password"
                 />
               </div>
