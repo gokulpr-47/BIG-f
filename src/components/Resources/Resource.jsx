@@ -38,7 +38,7 @@ function Resource() {
                     <div className="btn rightbtn">
 
                     <NavLink to="/signup">
-                    <button onClick={handleSubmit} className="big-button">signin</button>
+                    <button onClick={handleSubmit} className="big-button">Logout</button>
             </NavLink>
 
 
