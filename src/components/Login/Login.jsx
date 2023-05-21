@@ -36,17 +36,11 @@ function Login() {
             console.log("successsss", res.data);
             setAuth({
               uid: res.data.user._id,
-              role: res.data.user.role,
               accessToken: res.data.accessToken,
             });
             setPassword("");
             setUsername("");
-            if (res.data.user.role === "admin") {
-              console.log("ewwewew");
-              navigate("/admin-panel");
-            } else if (res.data.user.role === "user") {
-              navigate("/home");
-            }
+            navigate("/upload");
           } else {
             console.log("failure");
           }

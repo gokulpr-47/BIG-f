@@ -23,6 +23,7 @@
 }
 
 .logout {
+  cursor: pointer;
   width: 130px;
   height: 56px;
 }

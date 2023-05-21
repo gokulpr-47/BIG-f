@@ -1,0 +1,50 @@
+.container{
+    background-image: url('/images/background.jpg');
+    width: 100vw;
+    height: 100vh;
+    background-repeat:no-repeat;
+    background-size:     cover;
+}
+.relogo{
+    padding-top: 40px;
+    padding-left: 50px;
+}
+.rheader{
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: space-between;
+}
+.gpt{
+    display: flex;
+}
+.chatgpt{
+    display: flex;
+    align-items: end;
+    margin-top: 482px;
+    padding-left: 30px;
+}
+.content{
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+.curatedcard{
+    position: absolute;
+    top: 20px;
+    left: 270px;
+    height: 656px;
+    width: 950px;
+    z-index: 2;
+}
+.tt{
+    width: 622px;
+    height: 521px;
+    position: absolute;
+    z-index: 3;
+    top: 111px;
+    background-color: #FFBB00;
+    left: 435px;
+    border: 2px solid #000000;
+    border-radius: 10px;
+}
