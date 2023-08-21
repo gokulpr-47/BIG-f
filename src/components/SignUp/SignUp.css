@@ -191,10 +191,10 @@ label {
   padding-bottom: 10px;
 }
 
-.middlebox {
-  /* position: absolute;
-  transform: translate(75%, -39%); */
-}
+/* .middlebox {
+  position: absolute;
+  transform: translate(75%, -39%);
+} */
 
 /* .middlebox-abs {
   display: flex;
