@@ -1,8 +1,8 @@
 import { useState } from "react";
 import "./Login.css";
 import { NavLink } from "react-router-dom";
-import useAuth from "../../Hooks/useAuth";
-import axios from "../../API/axios";
+import useAuth from "../Hooks/useAuth";
+import axios from "../API/axios";
 import { useNavigate } from "react-router-dom";
 
 function Login() {
