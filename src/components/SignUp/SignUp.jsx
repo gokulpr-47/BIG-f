@@ -4,11 +4,13 @@ import useAuth from "../../Hooks/useAuth";
 import {useNavigate} from "react-router-dom"
 import { NavLink } from "react-router-dom";
 import axios from "../../API/axios"
+import p3_lp from '../../assets/p3_lp.svg'
+
 
 export default function SignUp() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [username, setUsername] = useState("");
+  const [username, setUsername] = useState(""); 
   const [password,setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [sem, setSem] = useState("");
@@ -28,7 +30,7 @@ export default function SignUp() {
     }
   }, [])
 
-  const handleSubmit = (e) =>{
+  const handleSubmit = (e) =>{ 
     e.preventDefault();
     if(firstName && lastName && username && password && confirmPassword && sem && grad && branch && college){
       console.log("hahaha");
@@ -71,7 +73,8 @@ export default function SignUp() {
 
       <div className="signup-body">
         <div className="signup-body-left">
-          <img className="cardsvg" src="images/card.svg" alt="" width="270px" />
+
+          <img className="cardsvg" src={p3_lp} alt="" width="270px" />
           <img
             className="rectsvg"
             src="images/Rectangle 8.svg"

@@ -96,11 +96,12 @@ button.big-button:active::before {
   padding: 15px 50px;
 }
 
-.logo {
-  /* margin-top: 60px; */
-  /* margin-left: 53px; */
-}
+/* .logo {
+  margin-top: 60px;
+  margin-left: 53px;
+} */
 .right {
+  padding: 20px 10px;
   display: flex;
   align-items: center;
 }
@@ -110,10 +111,10 @@ button.big-button:active::before {
   margin-right: 38px;
 }
 
-.circles {
-  /* margin-top: 37px;
-    margin-right: 64px; */
-}
+/* .circles {
+  margin-top: 37px;
+    margin-right: 64px;
+} */
 
 .down {
   display: flex;
@@ -131,18 +132,22 @@ button.big-button:active::before {
   border: 1px solid black;
   margin-left: 79px;
 }
+
 .book {
   height: 52px;
   width: 64px;
 }
+
 .finger {
   height: 324px;
   width: 77px;
 }
+
 .elipse {
   height: 136px;
   width: 67px;
 }
+
 .second {
   height: 625px;
   width: 750px;
@@ -151,64 +156,81 @@ button.big-button:active::before {
   border-radius: 32px;
   /* position: relative; */
 }
+
 .grid {
   mix-blend-mode: darken;
 }
-.second > .grid {
+
+.second>.grid {
   width: fit-content;
   margin-left: auto;
   transform: translate(97px, 10px);
 }
+
 .gridimg {
   mix-blend-mode: multiply;
   /* position: absolute; */
 }
+
 .yellowcircle {
   height: 16px;
   margin-left: 30px;
 }
+
 label {
   font-weight: 700;
   font-size: 30px;
 }
+
 .inputsubmit {
   display: flex;
 }
-span {
-  text-decoration: underline;
+
+.Under {
+  /* text-decoration: underline; */
+  border-bottom: #fb0000 4px solid;
 }
+
 .indigogrid {
   mix-blend-mode: exclusion;
   height: 157px;
   margin-bottom: 20px;
 }
+
 .page {
   height: 596px;
   width: 282.0550537109375px;
   z-index: 10;
   position: absolute;
 }
+
 .form {
   margin-top: 20px;
   margin-left: 30px;
+  font-family: 'Inter', sans-serif;
   margin-bottom: 80px;
 }
+
 .user {
   margin-left: 8px;
   position: absolute;
 }
+
 .usernameinput {
   margin-top: 20px;
   display: flex;
   align-items: center;
 }
-.submit > input {
+
+.submit>input {
   width: 195px;
 }
+
 .textuser {
   border: 2px solid;
   padding: 10px;
   border-radius: 25px;
+  background: transparent;
   background: #fb0000;
   -webkit-box-shadow: -6px 9px 0px 2px #fdc000;
   -moz-box-shadow: -6px 9px 0px 2px #fdc000;
@@ -216,10 +238,13 @@ span {
   width: 335px;
   height: 23px;
 }
+
 .passlabel {
+  font-family: 'Inter', sans-serif;
   margin-left: 8px;
   margin-bottom: 13px;
 }
+
 .password {
   border: 2px solid;
   padding: 10px;
@@ -231,12 +256,19 @@ span {
   width: 500px;
   height: 23px;
 }
+
 .submit {
   margin-top: 20px;
   margin-left: 20px;
-  background-image: url ("/images/loginlogo.svg") no-repeat;
+  background-image: url ('../assets/loginlogo.svg') no-repeat;
+  background-repeat: no-repeat;
 }
+
 .rightbtn {
   position: relative;
   top: -12px;
+}
+
+.indigo img {
+  mix-blend-mode: exclusion;
 }

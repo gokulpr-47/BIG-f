@@ -1,9 +1,9 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import Login from "./components/Login/Login";
+import Login from "./components/Login";
 import SignUp from "./components/SignUp/SignUp";
-import LandingPage from "./components/LandingPage/LandingPage";
-// import AboutUs from "./components/Aboutus/AboutUs";
+import LandingPage from "./components/Landing";
+import AboutUs from "./components/Aboutus/AboutUs";
 import UploadPage from "./components/UploadPage/UploadPage";
 import PersistLogin from "./components/PersistLogin/PersistLogin";
 import RequireAuth from "./components/RequireAuth/RequireAuth";
@@ -26,8 +26,8 @@ function App() {
             <Route path="/resource/:id" element={<Resource />} />
           </Route>
         </Route>
-        {/* <Route path="/resource" element={<Resource/>} /> */}
-        {/* <Route path="/about" element={<AboutUs />} /> */}
+        <Route path="/resource" element={<Resource/>} />
+        <Route path="/about" element={<AboutUs />} />
       </Routes>
     </>
   );
